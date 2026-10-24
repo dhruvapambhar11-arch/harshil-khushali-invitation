@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* The invitation is a painted sheet; it keeps its own colours whatever the
+   phone's theme is set to, so there is no dark-mode override here. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #fdfaf5;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+  overscroll-behavior: none;
+}

@@ -825,7 +825,7 @@ function BlessingSection() {
               </div>
               <div className="flex flex-col items-center text-center">
                 <span className="font-serif italic text-[#8c7454] mb-2" style={{ fontSize: "clamp(0.65rem, 0.8rem, 0.9rem)" }}>
-                  Son of Mr. Ashokbhai Gandubhai Bhalara and Mrs. Bhagwati Ashokbhai Bhalara
+                  Son of Mr. Ashokbhai Gandubhai Bhalara and Mrs. Bhagwatiben Ashokbhai Bhalara
                 </span>
                 <h2 className="font-serif text-[#a37e4c] tracking-[0.12em]" style={{ fontSize: "clamp(2rem, 2.8rem, 3.5rem)", fontWeight: 300, lineHeight: 1 }}>
                   HARSHIL
@@ -1532,7 +1532,17 @@ function InviteesSection() {
         className="absolute flex flex-col items-center justify-center text-center"
         style={{ left: "10%", right: "33.7%", top: "24%", bottom: "20%" }}
       >
-        <LotusMark className="w-9 h-5 mb-4" color="#c0738a" />
+        <Image
+          src={MONOGRAM_PLATE}
+          alt="Harshil ke jeevan ki khili Khushali"
+          width={807}
+          height={961}
+          unoptimized
+          className="w-auto mb-2 select-none"
+          // Sized off the screen's height, not its width: the panel is a fixed
+          // share of the height, so on a short phone the plate gives way first.
+          style={{ height: "clamp(52px, 15svh, 88px)" }}
+        />
 
         <p
           className="font-serif italic text-[#8c5a63] leading-relaxed"
@@ -1542,7 +1552,7 @@ function InviteesSection() {
           standing together and saying come, be with us.&rdquo;
         </p>
 
-        <span className="my-5 w-10 border-t border-[#d8a7b2]" />
+        <span className="my-3 w-10 border-t border-[#d8a7b2]" />
 
         <p
           className="font-sans uppercase text-[#a8707e]"
@@ -1567,10 +1577,17 @@ function InviteesSection() {
           className="font-serif font-semibold text-[#7d3f4d] leading-snug"
           style={{ fontSize: "clamp(0.82rem, 3.9vw, 1rem)" }}
         >
-          Mrs. Bhagwati Ashokbhai Bhalara
+          Mrs. Bhagwatiben Ashokbhai Bhalara
         </h3>
 
-        <div className="mt-5 flex flex-col items-center gap-1">
+        <p
+          className="mt-4 font-sans uppercase text-[#a8707e]"
+          style={{ fontSize: "clamp(0.5rem, 2.3vw, 0.62rem)", letterSpacing: "0.3em" }}
+        >
+          Varudi Enterprise
+        </p>
+
+        <div className="mt-3 flex flex-col items-center gap-1">
           {INVITEE_PHONES.map((number) => (
             <a
               key={number}

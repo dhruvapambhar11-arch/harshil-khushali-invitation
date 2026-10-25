@@ -1771,6 +1771,124 @@ function InvitationContent({ curtainPhase }) {
 const AlternativeBlessingSection = BlessingSection;
 
 /**
+ * The opening screen while the plates load: a lotus unfolding a petal at a
+ * time over a ripple, with hearts drifting up off it. Petals open from the
+ * centre outwards, the outer ring paler so the flower reads as having depth.
+ */
+const LOADER_PETALS = [
+  { angle: -66, fill: "#f6d3dc", delay: 0.75 },
+  { angle: 66, fill: "#f6d3dc", delay: 0.75 },
+  { angle: -44, fill: "#eeb3c2", delay: 0.5 },
+  { angle: 44, fill: "#eeb3c2", delay: 0.5 },
+  { angle: -22, fill: "#e095a9", delay: 0.25 },
+  { angle: 22, fill: "#e095a9", delay: 0.25 },
+  { angle: 0, fill: "#d27a92", delay: 0 },
+];
+const LOADER_PETAL = "M0 0C-11-12-12-34 0-50C12-34 11-12 0 0Z";
+
+const LOADER_HEARTS = [
+  { x: -46, size: 9, delay: 0, secs: 4.2 },
+  { x: 38, size: 12, delay: 1.1, secs: 4.8 },
+  { x: -18, size: 7, delay: 2.2, secs: 3.9 },
+  { x: 54, size: 8, delay: 2.9, secs: 4.4 },
+  { x: 12, size: 10, delay: 3.6, secs: 5 },
+];
+const HEART = "M12 21s-7.5-4.6-9.6-9.2C.8 8.2 3 4.5 6.6 4.5c2.2 0 3.7 1.2 5.4 3.2 1.7-2 3.2-3.2 5.4-3.2 3.6 0 5.8 3.7 4.2 7.3C19.5 16.4 12 21 12 21Z";
+
+function LotusLoader({ progress }) {
+  return (
+    <div className="relative flex flex-col items-center">
+      <div className="relative w-40 h-36">
+        {/* Hearts rising off the bloom, each on its own loop. */}
+        {LOADER_HEARTS.map(({ x, size, delay, secs }, i) => (
+          <motion.svg
+            key={i}
+            viewBox="0 0 24 24"
+            className="absolute left-1/2 bottom-12"
+            style={{ width: size, height: size, marginLeft: x - size / 2 }}
+            initial={{ y: 0, opacity: 0, scale: 0.6 }}
+            animate={{ y: -110, opacity: [0, 0.9, 0.9, 0], scale: [0.6, 1, 1, 0.8], x: [0, 6, -6, 3] }}
+            transition={{ duration: secs, delay, repeat: Infinity, ease: "easeOut" }}
+            aria-hidden
+          >
+            <path d={HEART} fill="#e6a2b3" />
+          </motion.svg>
+        ))}
+
+        <svg viewBox="0 0 160 144" className="absolute inset-0 w-full h-full overflow-visible" aria-hidden>
+          {/* Ripples on the water the flower sits on. */}
+          {[0, 1, 2].map((i) => (
+            <motion.ellipse
+              key={i}
+              cx="80"
+              cy="112"
+              rx="34"
+              ry="7"
+              fill="none"
+              stroke="#c9a8ae"
+              strokeWidth="0.8"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: [0.5, 1.9], opacity: [0, 0.7, 0] }}
+              transition={{ duration: 3.6, delay: i * 1.2, repeat: Infinity, ease: "easeOut" }}
+              style={{ transformBox: "fill-box", transformOrigin: "50% 50%" }}
+            />
+          ))}
+
+          {/* Leaves either side of the stem. */}
+          <path d="M80 110C64 104 46 106 34 114C50 118 68 117 80 110Z" fill="#9aae86" opacity="0.85" />
+          <path d="M80 110C96 104 114 106 126 114C110 118 92 117 80 110Z" fill="#8a9f75" opacity="0.85" />
+
+          {/* The bloom: unfolds once, then breathes. */}
+          <motion.g
+            animate={{ scale: [1, 1.035, 1] }}
+            transition={{ duration: 3.2, delay: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+          >
+            {LOADER_PETALS.map(({ angle, fill, delay }) => (
+              <g key={angle} transform={`translate(80 108) rotate(${angle})`}>
+                <motion.path
+                  d={LOADER_PETAL}
+                  fill={fill}
+                  stroke="#c46a84"
+                  strokeWidth="0.6"
+                  strokeOpacity="0.45"
+                  initial={{ scaleY: 0, scaleX: 0.4, opacity: 0 }}
+                  animate={{ scaleY: 1, scaleX: 1, opacity: 1 }}
+                  transition={{ duration: 0.9, delay, ease: [0.22, 0.61, 0.24, 1] }}
+                  style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+                />
+              </g>
+            ))}
+            <motion.circle
+              cx="80"
+              cy="104"
+              r="3.2"
+              fill="#d8b46a"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0.6, 1] }}
+              transition={{ duration: 2.4, delay: 1, repeat: Infinity, repeatType: "mirror" }}
+            />
+          </motion.g>
+        </svg>
+      </div>
+
+      <p className="mt-3 font-serif italic text-[#7d3f4d] text-xl">Harshil &amp; Khushali</p>
+      <p className="mt-2 text-[0.6rem] tracking-[0.4em] uppercase text-[#a8707e]">
+        A celebration of love
+      </p>
+
+      <div className="mt-6 w-36 h-px bg-[#ead3d8] overflow-hidden rounded-full">
+        <motion.div
+          className="h-full bg-[#c0738a]"
+          animate={{ width: `${progress}%` }}
+          transition={{ ease: "easeOut", duration: 0.3 }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/**
  * The invitation, whole. It still takes a `data` prop and still ignores it:
  * everything is written into this file, and the prop is the hook that was
  * there when the same component served several weddings from one database.
@@ -1788,13 +1906,14 @@ export default function Invitation({ data: _data }) {
   useEffect(() => {
     let currentProgress = 0;
     const interval = setInterval(() => {
-      currentProgress += Math.floor(Math.random() * 15) + 5;
+      // Paced so the loader's lotus has opened fully before the door replaces it.
+      currentProgress += Math.floor(Math.random() * 8) + 4;
       if (currentProgress >= 100) {
         setProgress(100);
         clearInterval(interval);
-        setTimeout(() => setIsLoading(false), 500);
+        setTimeout(() => setIsLoading(false), 600);
       } else { setProgress(currentProgress); }
-    }, 150);
+    }, 200);
     return () => clearInterval(interval);
   }, []);
 
@@ -1848,8 +1967,7 @@ export default function Invitation({ data: _data }) {
       <AnimatePresence>
         {isLoading && (
           <motion.div key="preloader" exit={{ opacity: 0 }} className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#fdfaf5]">
-            <p className="text-[0.65rem] tracking-[0.4em] uppercase mb-5 text-[#8a8a8a]">Loading</p>
-            <div className="text-4xl font-serif italic">{progress}%</div>
+            <LotusLoader progress={progress} />
           </motion.div>
         )}
       </AnimatePresence>

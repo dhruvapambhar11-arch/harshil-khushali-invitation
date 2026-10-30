@@ -1039,7 +1039,7 @@ const EVENT_DATA = [
     hero: { y: "11%" },
     quote: "\u201cAs the Manek Stambh stands tall and bright, it guards our love with sacred light. Join us as we lay the base, for a life filled with joy and grace.\u201d",
     date: "23/11/2026",
-    time: "7:00AM",
+    time: "1:30PM",
     venue: VENUES.golden,
   },
   {
@@ -1055,7 +1055,7 @@ const EVENT_DATA = [
     hero: { y: "19.6%", wash: 0, titleInArt: true },
     quote: "\u201cA ritual where golden hues carry not just a glow, but blessing, love, laughter, and new beginnings.\u201d",
     date: "23/11/2026",
-    time: "10:00AM",
+    time: "3:30PM",
     venue: VENUES.golden,
   },
   {
@@ -1066,7 +1066,6 @@ const EVENT_DATA = [
     hero: { y: "10%" },
     quote: "\u201cSteps in circles, dhol in the air, colour and laughter everywhere. Come dance the night with us.\u201d",
     date: "23/11/2026",
-    // TODO: confirm the hour with the family before this goes out.
     time: "8:00PM",
     venue: VENUES.golden,
   },
@@ -1078,7 +1077,7 @@ const EVENT_DATA = [
     hero: { y: "11%" },
     quote: "\u201cDhol beats, dancing hearts, with music in the air and joy in every step, the groom\u2019s journey towards his forever begins.\u201d",
     date: "24/11/2026",
-    time: "2:00PM",
+    time: "3:00PM",
     venue: VENUES.home,
   },
   {
@@ -1090,7 +1089,7 @@ const EVENT_DATA = [
     hero: { y: "11%" },
     quote: "\u201cHand in hand with a promise to stay, side by side in every way, two separate souls now tied as one, a beautiful journey has just begun.\u201d",
     date: "24/11/2026",
-    time: "4:00PM",
+    time: "7:30PM",
     venue: VENUES.khodal,
   },
 ];
@@ -1548,8 +1547,7 @@ function InviteesSection() {
           className="font-serif italic text-[#8c5a63] leading-relaxed"
           style={{ fontSize: "clamp(0.66rem, 3.1vw, 0.82rem)" }}
         >
-          &ldquo;A wedding is not one day in two lives, but two families
-          standing together and saying come, be with us.&rdquo;
+          &ldquo;The best times are always found when friends and family gather round.&rdquo;
         </p>
 
         <span className="my-3 w-10 border-t border-[#d8a7b2]" />

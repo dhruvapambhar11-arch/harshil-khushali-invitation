@@ -1039,6 +1039,7 @@ const EVENT_DATA = [
     hero: { y: "11%" },
     quote: "\u201cAs the Manek Stambh stands tall and bright, it guards our love with sacred light. Join us as we lay the base, for a life filled with joy and grace.\u201d",
     date: "23/11/2026",
+    day: "Monday",
     time: "1:30PM",
     venue: VENUES.golden,
   },
@@ -1055,6 +1056,7 @@ const EVENT_DATA = [
     hero: { y: "19.6%", wash: 0, titleInArt: true },
     quote: "\u201cA ritual where golden hues carry not just a glow, but blessing, love, laughter, and new beginnings.\u201d",
     date: "23/11/2026",
+    day: "Monday",
     time: "3:30PM",
     venue: VENUES.golden,
   },
@@ -1066,6 +1068,7 @@ const EVENT_DATA = [
     hero: { y: "10%" },
     quote: "\u201cSteps in circles, dhol in the air, colour and laughter everywhere. Come dance the night with us.\u201d",
     date: "23/11/2026",
+    day: "Monday",
     time: "8:00PM",
     venue: VENUES.golden,
   },
@@ -1077,6 +1080,7 @@ const EVENT_DATA = [
     hero: { y: "11%" },
     quote: "\u201cDhol beats, dancing hearts, with music in the air and joy in every step, the groom\u2019s journey towards his forever begins.\u201d",
     date: "24/11/2026",
+    day: "Tuesday",
     time: "3:00PM",
     venue: VENUES.home,
   },
@@ -1089,6 +1093,7 @@ const EVENT_DATA = [
     hero: { y: "11%" },
     quote: "\u201cHand in hand with a promise to stay, side by side in every way, two separate souls now tied as one, a beautiful journey has just begun.\u201d",
     date: "24/11/2026",
+    day: "Tuesday",
     time: "7:30PM",
     venue: VENUES.khodal,
   },
@@ -1319,6 +1324,10 @@ function EventCard({ event, index, total, progress }) {
               </p>
               <span className="w-px h-4 bg-[#bfae82]" />
               <p className="font-serif font-semibold tracking-wide text-[#7a6234]" style={{ fontSize: "clamp(0.68rem, 3.2vw, 0.85rem)" }}>
+                {event.day}
+              </p>
+              <span className="w-px h-4 bg-[#bfae82]" />
+              <p className="font-serif font-semibold tracking-wide text-[#7a6234]" style={{ fontSize: "clamp(0.68rem, 3.2vw, 0.85rem)" }}>
                 {event.time}
               </p>
             </div>
@@ -1360,6 +1369,10 @@ function EventCard({ event, index, total, progress }) {
           <div className="flex items-center justify-center gap-2">
             <p className="font-serif font-semibold text-[#7a6234] whitespace-nowrap" style={{ fontSize: "clamp(0.56rem, 2.7vw, 0.7rem)" }}>
               {event.date}
+            </p>
+            <span className="w-px h-3.5 bg-[#c0b795]" />
+            <p className="font-serif font-semibold tracking-wide text-[#7a6234] whitespace-nowrap" style={{ fontSize: "clamp(0.56rem, 2.7vw, 0.7rem)" }}>
+              {event.day}
             </p>
             <span className="w-px h-3.5 bg-[#c0b795]" />
             <p className="font-serif font-semibold tracking-wide text-[#7a6234] whitespace-nowrap" style={{ fontSize: "clamp(0.56rem, 2.7vw, 0.7rem)" }}>
@@ -1634,7 +1647,7 @@ function LocationSection() {
       <Dragonfly />
 
       <div className="relative z-30 h-full flex flex-col items-center justify-center px-[10%]">
-        <h2 className="font-serif text-[#8a6f45] text-[0.72rem] tracking-[0.42em] uppercase mb-8">
+        <h2 className="font-serif text-[#7c5312] text-[0.9rem] tracking-[0.42em] uppercase mb-8 ml-16">
           <b>Location</b>
         </h2>
 

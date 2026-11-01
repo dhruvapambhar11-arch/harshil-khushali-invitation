@@ -1069,7 +1069,7 @@ const EVENT_DATA = [
     quote: "\u201cSteps in circles, dhol in the air, colour and laughter everywhere. Come dance the night with us.\u201d",
     date: "23/11/2026",
     day: "Monday",
-    time: "8:00PM",
+    time: "9:00PM",
     venue: VENUES.golden,
   },
   {
@@ -1081,7 +1081,7 @@ const EVENT_DATA = [
     quote: "\u201cDhol beats, dancing hearts, with music in the air and joy in every step, the groom\u2019s journey towards his forever begins.\u201d",
     date: "24/11/2026",
     day: "Tuesday",
-    time: "3:00PM",
+    time: "2:00PM",
     venue: VENUES.home,
   },
   {

@@ -25,6 +25,10 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   themeColor: "#fdfaf5",
+  /* "only light" stops Android's auto-dark (Chrome, Samsung Internet) from
+     repainting the sheet when the phone is in dark mode - iPhones never do
+     that, which is why the colours used to differ between the two. */
+  colorScheme: "only light",
 };
 
 export default function RootLayout({ children }) {

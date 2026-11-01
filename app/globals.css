@@ -2,6 +2,10 @@
 
 /* The invitation is a painted sheet; it keeps its own colours whatever the
    phone's theme is set to, so there is no dark-mode override here. */
+html {
+  color-scheme: only light;
+}
+
 html,
 body {
   height: 100%;

@@ -1477,7 +1477,7 @@ function EventDetailsSection({ containerRef, events }) {
  * out - they were read off a decorative face, and a wrong one here is a
  * guest who cannot reach the family.
  */
-const INVITEE_PHONES = ["98790 73560", "88555 44945"];
+const INVITEE_PHONES = ["98790 73601", "88666 44159"];
 
 const PAPER_PLATE = "/templates/custom/template2/lotus-paper-plate.webp";
 const DRAGONFLY = "/templates/custom/template2/dragonfly.webp";
